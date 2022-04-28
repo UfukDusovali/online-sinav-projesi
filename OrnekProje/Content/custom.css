@@ -1,0 +1,50 @@
+﻿body {
+    margin-top: 50px;
+}
+
+input {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#textarea {
+    width: 100%;
+    height: 200px;
+    min-height: 40px;
+    margin-bottom: 30px;
+    border: 2px solid #eaeaea;
+    padding: 5px;
+}
+
+select#drpTempQuestion {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+}
+
+select#drpTempQuestion1,
+#drpTempQuestion2,
+#drpTempQuestion3,
+#drpTempQuestion4 {
+    max-width: 20%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+}
+
+
+
+
+.form-control[readonly].form-control {
+    background-color: #fff;
+}
+
+.kirmizi {
+    background-color: #ff0000 !important;
+    color:#ffd800 !important;
+
+}
+.login-page, .register-page {
+    background: #43567b;
+}

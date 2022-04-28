@@ -1,0 +1,237 @@
+﻿@using OrnekProje.Models
+@model TempQuestion
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2 class="text-center">Soru Oluşturma Sayfası</h2>
+
+@using (Html.BeginForm("Create", "CreateTest", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.Id, ((List<TempQuestion>)ViewData["TempQuestion"]).Select(x => new SelectListItem
+           {
+               
+               Text = x.Name,
+               Value = x.Id.ToString()
+           }), "- Soru Seçiniz -", new { @id = "drpTempQuestion", @class = "form-control", required = "required" })
+                @Html.Hidden("baslik")
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-10">
+  
+                @Html.TextArea(Html.Raw("textarea"), new { @readonly = "readonly", required = "required", htmlAttributes = new { @class = "form-control",@id= "textarea" } })
+            </div>
+        </div>
+
+        <div class="row" id="sorucevap1">
+            <div class="col-md-10">
+                @Html.TextBox("Soru1", "", new { @class = "form-control", @placeholder = "Soru:", required = "required" })
+                <br />
+            </div>
+            <div class="col-md-5">
+                @Html.TextBox("s1cevap1", "", new { @class = "form-control", @placeholder = "A)", required = "required" })
+                <br />
+            </div>
+
+            <div class="col-md-5">
+                @Html.TextBox("s1cevap2", "", new { @class = "form-control", @placeholder = "B)", required = "required" })
+                <br />
+            </div>
+
+            <div class="col-md-5">
+                @Html.TextBox("s1cevap3", "", new { @class = "form-control", @placeholder = "C)", required = "required" })
+                <br />
+            </div>
+
+            <div class="col-md-5">
+                @Html.TextBox("s1cevap4", "", new { @class = "form-control", @placeholder = "D)", required = "required" })
+                <br />
+            </div>
+            <div class="row">
+                <div class="col-md-10">
+
+                    <select id="drpTempQuestion1" class="form-control" required="required">
+                        <option>-Cevap Seçiniz-</option>
+                        <option value="s1cevap1">A Şıkkı</option>
+                        <option value="s1cevap2">B Şıkkı</option>
+                        <option value="s1cevap3">C Şıkkı</option>
+                        <option value="s1cevap4">D Şıkkı</option>
+                    </select>
+                    @Html.Hidden("cevap1")
+                </div>
+            </div>
+        </div>
+        <div class="row" id="sorucevap2">
+            <div class="col-md-10">
+                @Html.TextBox("Soru2", "", new { @class = "form-control", @placeholder = "Soru:", required = "required" })
+                <br />
+            </div>
+            <div class="col-md-5">
+                @Html.TextBox("s2cevap1", "", new { @class = "form-control", @placeholder = "A)", required = "required" })
+                <br />
+            </div>
+
+            <div class="col-md-5">
+                @Html.TextBox("s2cevap2", "", new { @class = "form-control", @placeholder = "B)", required = "required" })
+                <br />
+            </div>
+
+            <div class="col-md-5">
+                @Html.TextBox("s2cevap3", "", new { @class = "form-control", @placeholder = "C)", required = "required" })
+                <br />
+            </div>
+
+            <div class="col-md-5">
+                @Html.TextBox("s2cevap4", "", new { @class = "form-control", @placeholder = "D)", required = "required" })
+                <br />
+            </div>
+            <div class="row">
+                <div class="col-md-10">
+
+                    <select id="drpTempQuestion2" class="form-control" required="required">
+                        <option>-Cevap Seçiniz-</option>
+                        <option value="s2cevap1">A Şıkkı</option>
+                        <option value="s2cevap2">B Şıkkı</option>
+                        <option value="s2cevap3">C Şıkkı</option>
+                        <option value="s2cevap4">D Şıkkı</option>
+                    </select>
+                    @Html.Hidden("cevap2")
+                </div>
+            </div>
+        </div>
+        <div class="row" id="sorucevap3">
+            <div class="col-md-10">
+                @Html.TextBox("Soru3", "", new { @class = "form-control", @placeholder = "Soru:", required = "required" })
+                <br />
+            </div>
+            <div class="col-md-5">
+                @Html.TextBox("s3cevap1", "", new { @class = "form-control", @placeholder = "A)", required = "required" })
+                <br />
+            </div>
+
+            <div class="col-md-5">
+                @Html.TextBox("s3cevap2", "", new { @class = "form-control", @placeholder = "B)", required = "required" })
+                <br />
+            </div>
+
+            <div class="col-md-5">
+                @Html.TextBox("s3cevap3", "", new { @class = "form-control", @placeholder = "C)", required = "required" })
+                <br />
+            </div>
+
+            <div class="col-md-5">
+                @Html.TextBox("s3cevap4", "", new { @class = "form-control", @placeholder = "D)", required = "required" })
+                <br />
+            </div>
+            <div class="row">
+                <div class="col-md-10">
+
+                    <select id="drpTempQuestion3" class="form-control" required="required">
+                        <option>-Cevap Seçiniz-</option>
+                        <option value="s3cevap1">A Şıkkı</option>
+                        <option value="s3cevap2">B Şıkkı</option>
+                        <option value="s3cevap3">C Şıkkı</option>
+                        <option value="s3cevap4">D Şıkkı</option>
+                    </select>
+                    @Html.Hidden("cevap3")
+                </div>
+            </div>
+        </div>
+        <div class="row" id="sorucevap4">
+            <div class="col-md-10">
+                @Html.TextBox("Soru4", "", new { @class = "form-control", @placeholder = "Soru:", required = "required" })
+                <br />
+            </div>
+            <div class="col-md-5">
+                @Html.TextBox("s4cevap1", "", new { @class = "form-control", @placeholder = "A)", required = "required" })
+                <br />
+            </div>
+
+            <div class="col-md-5">
+                @Html.TextBox("s4cevap2", "", new { @class = "form-control", @placeholder = "B)", required = "required" })
+                <br />
+            </div>
+
+            <div class="col-md-5">
+                @Html.TextBox("s4cevap3", "", new { @class = "form-control", @placeholder = "C)", required = "required" })
+                <br />
+            </div>
+
+            <div class="col-md-5">
+                @Html.TextBox("s4cevap4", "", new { @class = "form-control", @placeholder = "D)", required = "required" })
+                <br />
+            </div>
+            <div class="row">
+                <div class="col-md-10">
+  
+                    <select id="drpTempQuestion4" class="form-control" required="required">
+                        <option>-Cevap Seçiniz-</option>
+                        <option value="s4cevap1">A Şıkkı</option>
+                        <option value="s4cevap2">B Şıkkı</option>
+                        <option value="s4cevap3">C Şıkkı</option>
+                        <option value="s4cevap4">D Şıkkı</option>
+                    </select>
+                    @Html.Hidden("cevap4")
+                </div>
+            </div>
+        </div>
+
+
+        <button class="col-md-10 btn btn-danger">Ekle</button>
+    </div>
+
+}
+
+<script src="~/Scripts/jquery-3.1.1.min.js"></script>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $('#drpTempQuestion1').change(function () {
+            var deger1 = $('#drpTempQuestion1').val();
+            var Baslik1 = $("#"+deger1+"").val()
+            $('#cevap1').val(Baslik1);
+        });
+        $('#drpTempQuestion2').change(function () {
+            var deger2 = $('#drpTempQuestion2').val();
+            var Baslik2 = $("#" + deger2 + "").val()
+            $('#cevap3').val(Baslik2);
+        });
+        $('#drpTempQuestion3').change(function () {
+            var deger3= $('#drpTempQuestion3').val();
+            var Baslik3 = $("#" + deger3 + "").val()
+            $('#cevap3').val(Baslik3);
+        });
+        $('#drpTempQuestion4').change(function () {
+            var deger4 = $('#drpTempQuestion4').val();
+            var Baslik4 = $("#" + deger4 + "").val()
+            $('#cevap4').val(Baslik4);
+        });
+
+        $('#drpTempQuestion').change(function () {
+            var getId = $('#drpTempQuestion').val();
+            $.post("@Url.Action("icerikal", "CreateTest")", { id: getId }, function (data) {
+                $('#textarea').html("");
+                $('#textarea').html(data.substring(0, 500));
+            });
+
+            var deger = $('#drpTempQuestion').val();
+            var Baslik = $("#drpTempQuestion option[value=" + deger + "]").text();
+            $('#baslik').val(Baslik);
+         
+   
+
+        });
+    });
+
+
+</script>

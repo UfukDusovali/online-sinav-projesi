@@ -1,0 +1,80 @@
+﻿@model OrnekProje.Models.ExamModel
+
+@{
+    ViewBag.Title = "Exam";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+<h2>Sınav Sayfası</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 style="text-align:center">
+                    @Model.Sinav.FirstOrDefault(x => x.Id == Model.TestID).Name
+
+                </h1>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <h4 style="text-align:left; font-weight:bold">
+                    @Model.Sinav.FirstOrDefault(x => x.Id == Model.TestID).Text
+                </h4>
+            </div>
+        </div>
+        <br /><br /><br /><br />
+        <div class="row">
+            @foreach (var item in Model.Soru.Where(y => y.InforQuestionId == Model.TestID))
+            {
+                <div class="col-md-6">
+                    <br /><br />
+                    <p style="text-align:left; font-size:larger;">
+                        @item.Name
+                    </p>
+                    @foreach (var itemm in Model.Cevap.Where(x => x.QuestionId == item.Id))
+                    {
+                        <br />
+                        <input id="@itemm.Id" type="text" readonly class="form-control @itemm.IsTrue" value="@itemm.Name" />
+                    }
+                </div>
+            }
+        </div>
+        <br /><br />
+        <div class="row">
+                <div id="sonuc" class="col-md-offset-4 col-md-4 btn btn-danger ortala">Sınavı bitir</div>
+        </div>
+        <br /><br />
+        <div class="row">
+                @Html.ActionLink("Listeye dön", "Index", null, new { @class = "col-md-offset-4 col-md-4 btn btn-warning" })
+        </div>
+    </div>
+
+
+
+    <script src="~/Scripts/jquery-3.1.1.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $('#sonuc').click(function () {
+
+                $('.1').addClass('kirmizi');
+            });
+            
+            $('input').click(function(){
+                $(this).css('color', 'blue');
+            
+            });
+        });
+    </script>
+
+}
+

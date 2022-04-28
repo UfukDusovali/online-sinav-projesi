@@ -1,0 +1,26 @@
+﻿@*@model IEnumerable<OrnekProje.Models.InformationQuestion>*@
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+
+}
+
+<h2>Index</h2>
+@Html.ActionLink("Test oluştur","Create","CreateTest")
+
+@*@foreach (var item in Model)
+    {
+        @Html.Raw(item.Name) <br /> <br />
+        if (item.Text.Length > 300)
+        {
+            @Html.Raw(item.Text.Substring(0, 500)) <br /> <br />
+        }
+        else
+        {
+            @Html.Raw(item.Text)
+        }
+
+    }*@
+

@@ -1,0 +1,41 @@
+﻿@model OrnekProje.Models.InformationQuestion
+
+@{
+    ViewBag.Title = "Detay";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detay</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName("Başlık")
+        </dt>
+      
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <br />
+        <dt>
+            @Html.DisplayName("Konu")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Text)
+        </dd>
+        <br />
+        <dt>
+            @Html.DisplayName("Oluşturma Tarihi")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreateDate)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Düzenle", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Listeye dön", "Index")
+</p>
